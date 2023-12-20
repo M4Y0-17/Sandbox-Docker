@@ -7,7 +7,7 @@
 #### 💻 Ejecutar el programa:
 
 ```bash
-docker-compose up --build
+bash start.sh
 ```
 <img src="Stockholm.png" width="500" title="use example">
 
