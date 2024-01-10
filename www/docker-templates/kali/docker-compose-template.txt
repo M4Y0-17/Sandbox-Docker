@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  kali:
+    image: kasmweb/kali-rolling-desktop:1.14.0
+    shm_size: 512m
+    ports:
+      - "${PORT}:6901"
+    environment:
+      - VNC_PW=${PASSWORD}
+    restart: on-failure
