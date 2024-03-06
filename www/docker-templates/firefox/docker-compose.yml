@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  firefox:
+    image: kasmweb/firefox:1.14.0
+    shm_size: 512m
+    ports:
+      - "6902:6901"
+    environment:
+      - VNC_PW=1234
+    restart: on-failure

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  thunderbird:
+    build: .
+    shm_size: 512m
+    ports:
+      - "${PORT}:6901"
+    environment:
+      - VNC_PW=${PASSWORD}
+    restart: on-failure
+    volumes:
+      - ${EML_FILE_PATH}:/home/ubuntu/eml_file.eml
