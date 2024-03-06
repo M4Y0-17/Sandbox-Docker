@@ -1,0 +1,145 @@
+.home {
+    color: rgb(30, 159, 176);
+}
+
+.copy-user-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Cambia a flex-start para alinear al principio */
+    margin: auto;
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: white;
+    max-width: 350px;
+    width: 100%;
+}
+
+#user-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    padding: 0.5em 1em; /* Aumenta el padding horizontal para hacer el botón más ancho */
+    cursor: default;
+    white-space: nowrap; /* Evita que el texto se envuelva en el botón */
+    font-size: 0.9em; /* Ajusta el tamaño de la fuente según prefieras */
+    flex-shrink: 0;
+}
+
+.user-name-container {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+#user-output {
+    flex-grow: 1;
+    border: none;
+    padding: 0.5em; /* Añade padding para que el texto no esté pegado al borde */
+    margin: 0;
+    font-size: 0.9em; /* Ajusta el tamaño de la fuente del input para que coincida con el del botón */
+    color: #808080; /* Establece el color del texto a gris */
+}
+
+#user-output:focus {
+    outline: none;
+}
+
+.copy-btn {
+    background-color: #eee;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    padding: 0.5em; /* Asegúrate de que el padding sea similar al de #user-output para alinear los elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-grow: 0; /* Evita que el botón de copiar crezca */
+    width: 40px; /* Establece un ancho fijo para el botón de copiar */
+    position: relative;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+.copy-btn:hover {
+    background-color: #ccc; /* Color más oscuro cuando el ratón está encima */
+}
+
+/* Tooltip antes de copiar */
+.copy-btn::before {
+    content: "Copy link";
+    position: absolute;
+    bottom: 100%; /* Ajusta esta propiedad para posicionar el tooltip encima del botón */
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px); /* Ajusta la posición del tooltip */
+    white-space: nowrap;
+    padding: 5px 8px; /* Ajusta el padding para que sea más ancho */
+    background-color: #333; /* Color de fondo más oscuro */
+    color: white;
+    border-radius: 4px; /* Bordes más redondeados */
+    font-size: 12px; /* Tamaño de letra más pequeño */
+    font-family: Arial, sans-serif; /* Cambia la fuente si es necesario */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    opacity: 0;
+    visibility: hidden; /* Oculta el tooltip inicialmente */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; 
+}
+
+.copy-btn:hover::before {
+    opacity: 1;
+    visibility: visible; /* Muestra el tooltip cuando se hace hover */
+}
+
+/* Tooltip después de copiar */
+.copy-btn.copied::before {
+    content: "Copied!";
+    background-color: black;
+}
+
+.copy-btn::after {
+    content: "";
+    position: absolute;
+    top: -20%; /* Posiciona la flecha debajo del tooltip */
+    left: 50%; /* Alinea la flecha con el centro del tooltip */
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent; /* Ajusta el color para que coincida con el tooltip */
+    opacity: 0;
+    visibility: hidden; /* Oculta la flecha inicialmente */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;    
+}
+
+.copy-btn:hover::after {
+    opacity: 1;
+    visibility: visible; /* Muestra la flecha cuando se hace hover */
+}
+
+.copy-btn img {
+    width: 1em; /* Usa em para que la imagen escale con el tamaño de fuente */
+    height: 1em;
+    transition: transform 0.2s ease;
+}
+
+.copy-btn:active img {
+    transform: scale(0.9);
+}
+
+
+@media (max-width: 768px) {
+    .copy-user-box {
+        flex-direction: column;
+    }
+
+    #user-btn, .user-name-container {
+        width: calc(100% - 1em); /* Ajusta el ancho para considerar el padding */
+        margin: 0.5em;
+    }
+
+    .user-name-container {
+        border-radius: 4px;
+    }
+}

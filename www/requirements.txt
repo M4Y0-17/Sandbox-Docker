@@ -1,0 +1,8 @@
+flask
+gunicorn
+sqlalchemy
+docker
+psutil
+app
+flask_sqlalchemy
+apscheduler
